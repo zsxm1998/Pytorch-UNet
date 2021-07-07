@@ -16,8 +16,8 @@ from torch.utils.tensorboard import SummaryWriter
 from utils.dataset import BasicDataset
 from torch.utils.data import DataLoader, random_split
 
-dir_img = 'data/imgs/'
-dir_mask = 'data/masks/'
+dir_img = '/nfs3-p1/zsxm/dataset/kumar_TNBC_sn/imgs/'
+dir_mask = '/nfs3-p1/zsxm/dataset/kumar_TNBC_sn/masks/'
 dir_checkpoint = 'checkpoints/'
 
 
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     #   - For 1 class and background, use n_classes=1
     #   - For 2 classes, use n_classes=1
     #   - For N > 2 classes, use n_classes=N
-    net = UNet(n_channels=3, n_classes=1, bilinear=True)
+    net = UNet(n_channels=3, n_classes=2, bilinear=True)
     logging.info(f'Network:\n'
                  f'\t{net.n_channels} input channels\n'
                  f'\t{net.n_classes} output channels (classes)\n'

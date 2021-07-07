@@ -34,6 +34,8 @@ class BasicDataset(Dataset):
 
         if len(img_nd.shape) == 2:
             img_nd = np.expand_dims(img_nd, axis=2)
+        if img_nd.shape[-1] == 4:
+            img_nd = img_nd[:, :, 0:-1]
 
         # HWC to CHW
         img_trans = img_nd.transpose((2, 0, 1))
